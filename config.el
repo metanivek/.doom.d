@@ -542,6 +542,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (add-hook! 'js2-mode-hook 'prettier-js-mode)
 (add-hook! 'web-mode-hook 'prettier-js-mode)
 
+;; turn off formatting for markdown
+(add-to-list '+format-on-save-enabled-modes 'markdown-mode t)
+
 ;; try RLS
 (after! rustic
   (setq rustic-lsp-server 'rls))
