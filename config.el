@@ -38,7 +38,8 @@
      'face 'doom-dashboard-banner)))
 
 ;;; Typography
-(setq doom-font (font-spec :family "Liberation Mono" :size 32))
+;; (setq doom-font (font-spec :family "Liberation Mono" :size 32))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 32))
 (setq doom-big-font-increment 6)
 (setq emojify-emoji-set "twemoji-v2")
 
@@ -58,7 +59,7 @@
 ;; (setq my-theme 'doom-molokai)
 ;; (setq my-theme 'doom-xcode)
 ;; (setq my-theme 'doom-spacegrey)
-;; (setq my-theme 'doom-one)
+(setq my-theme 'doom-one)
 
 ;; light
 ;; (setq my-theme 'doom-opera-light)
@@ -67,7 +68,7 @@
 ;; (setq my-theme 'doom-solarized-light)
 ;; (setq my-theme 'doom-gruvbox-light)
 ;; (setq my-theme 'doom-tomorrow-day)
-(setq my-theme 'doom-nord-light)
+;; (setq my-theme 'doom-nord-light)
 ;; (setq my-theme 'doom-acario-light)
 
 (setq doom-theme my-theme)
@@ -99,6 +100,7 @@
 ;;;
 (setq
  org-directory (expand-file-name "~/org/") ; main directory for all my org files
+ org-roam-v2-ack t
  org-roam-directory org-directory
  deft-directory org-directory
 
@@ -157,9 +159,6 @@
 * Notes\n:PROPERTIES:\n:Custom_ID: ${=key=}\n:URL: ${url}\n:AUTHOR: ${author-or-editor}\n:NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n:NOTER_PAGE: \n:END:\n\n"
       :unnarrowed t))
    ))
-;; REVIEW Best I can tell there is some load order issue with hooking into
-;; org-roam so just do it on org mode entry
-;; (add-hook! 'org-mode-hook 'org-roam-bibtex-mode)
 
 ;; org-noter to connect pdfs and notes
 (use-package! org-noter
@@ -506,6 +505,18 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 
 ;;
+;; LSP
+;;
+
+(setq
+  lsp-modeline-code-actions-enable nil
+  lsp-lens-enable nil
+  lsp-headerline-breadcrumb-enable t
+  lsp-headerline-breadcrumb-segments '(file symbols)
+  )
+
+
+;;
 ;; package configs
 ;;
 
@@ -551,6 +562,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; O Camel
 (add-hook 'tuareg-mode-hook #'(lambda() (setq mode-name "🐫")))
+
+(setq merlin-error-after-save t)
 
 ;; (setq-hook! 'tuareg-mode +format-with 'ocamlformat)
 

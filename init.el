@@ -90,7 +90,7 @@
         +docsets)
        (lsp +peek)
        ;;macos             ; MacOS-specific commands
-       magit               ; a git porcelain for Emacs
+       (magit +forge)      ; a git porcelain for Emacs
        make                ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf                 ; pdf enhancements
@@ -145,7 +145,8 @@
         +grip)
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
-       ocaml               ; an objective camel
+       (ocaml              ; an objective camel
+        +lsp)
        (org                ; organize your plain life in plain text
         +brain
         +journal
@@ -154,7 +155,7 @@
         ;;+pomodoro
         +present
         ;;+pretty
-        +roam)
+        +roam2)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
