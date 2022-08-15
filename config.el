@@ -509,16 +509,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;
 
 (setq
-  lsp-modeline-code-actions-enable nil
-  lsp-lens-enable nil
-  lsp-headerline-breadcrumb-enable t
-  lsp-headerline-breadcrumb-segments '(file symbols)
-  )
-
-
-;;
-;; package configs
-;;
+ lsp-modeline-code-actions-enable nil
+ lsp-lens-enable nil
+ lsp-headerline-breadcrumb-enable t
+ lsp-headerline-breadcrumb-segments '(file symbols)
+ )
 
 (setq tidal-boot-script-path "~/.cabal/store/ghc-8.10.4/tidal-1.7.7-fc542b3085c2f32ca34caec6b01fca885187ba065658677ecd7c111008302771/share/BootTidal.hs")
 
@@ -564,6 +559,20 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (add-hook 'tuareg-mode-hook #'(lambda() (setq mode-name "🐫")))
 
 (setq merlin-error-after-save t)
+
+;; show week numbers in calendar
+(copy-face font-lock-constant-face 'calendar-iso-week-face)
+(set-face-attribute 'calendar-iso-week-face nil
+                    :height 0.7)
+(setq
+ calendar-week-start-day 1
+ calendar-intermonth-text
+ '(propertize
+   (format "%2d"
+           (car
+            (calendar-iso-from-absolute
+             (calendar-absolute-from-gregorian (list month day year)))))
+   'font-lock-face 'calendar-iso-week-face))
 
 ;; (setq-hook! 'tuareg-mode +format-with 'ocamlformat)
 
