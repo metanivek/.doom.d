@@ -26,7 +26,7 @@
        ;;indent-guides     ; highlighted indent columns
        (ligatures)         ; ligatures or substitute text with pretty symbols
        ;;minimap           ; show a map of the code on the side
-       modeline            ; snazzy, Atom-inspired modeline, plus API
+       (modeline)          ; snazzy, Atom-inspired modeline, plus API
        nav-flash           ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints             ; highlight the region an operation acts on
@@ -146,7 +146,8 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        (ocaml              ; an objective camel
-        +lsp)
+        +lsp
+        +tree-sitter)
        (org                ; organize your plain life in plain text
         +brain
         +journal
