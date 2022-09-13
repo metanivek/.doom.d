@@ -99,6 +99,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        tmux                ; an API for interacting with tmux
+       tree-sitter         ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -125,8 +126,8 @@
        ;;gdscript          ; the language you waited for
        (go +lsp)           ; the hipster dialect
        (haskell            ; a language that's lazier than I am
-         +lsp
-         +dante)
+        +lsp
+        +dante)
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        (json               ; At least it ain't XML
