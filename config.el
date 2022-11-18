@@ -225,31 +225,31 @@
   (custom-declare-face '+my-todo-active `((t (
                                               :inherit (bold org-todo)
                                               :foreground ,(doom-color 'base8))
-                                             )) "")
+                                           )) "")
   (custom-declare-face '+my-todo-next `((t (
                                             :inherit (bold org-todo)
                                             :foreground ,(doom-color 'orange)
                                             )
-                                           )) "")
+                                         )) "")
   (custom-declare-face '+my-todo-started `((t (
                                                :inherit (bold org-todo)
                                                :foreground ,(doom-color 'violet)
                                                )
-                                              )) "")
+                                            )) "")
   (custom-declare-face '+my-todo-onhold `((t (
                                               :inherit (bold org-todo)
                                               :foreground ,(doom-color 'base4)
                                               )
-                                             )) "")
+                                           )) "")
   (custom-declare-face '+my-todo-done '((t (
                                             :inherit (bold success org-todo)
                                             )
-                                           )) "")
+                                         )) "")
   (custom-declare-face '+my-todo-xdone `((t (
                                              :inherit (bold org-todo)
                                              :foreground ,(doom-color 'teal)
                                              )
-                                            )) "")
+                                          )) "")
   )
 
 (after! org
@@ -258,16 +258,24 @@
   ;; setup org roam capture templates
   (setq org-roam-capture-templates
         '(
-          ("n" "note" plain (function org-roam--capture-get-point)
-           "%?"
-           :file-name "%<%Y%m%d%H%M%S>-${slug}"
-           :head "#+TITLE: ${title}\n"
+          ("n" "note" plain "%?"
+           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}\n")
            :unnarrowed t)
-          ("p" "permanent" plain (function org-roam--capture-get-point)
-           "+ tags :: %?\n\n* Note\n"
-           :file-name "p_%<%Y%m%d%H%M%S>"
-           :head "#+TITLE: ${title}\n#+roam_tags: perm\n\n"
+          ("p" "permanent" plain "+ tags :: %?\n\n* Note\n"
+           :target (file+head "p_%<%Y%m%d%H%M%S>.org"
+                              "#+title: ${title}\n+roam_tags: perm\n\n")
            :unnarrowed nil)
+          ;; ("n" "note" plain (function org-roam--capture-get-point)
+          ;;  "%?"
+          ;;  :file-name "%<%Y%m%d%H%M%S>-${slug}"
+          ;;  :head "#+TITLE: ${title}\n"
+          ;;  :unnarrowed t)
+          ;; ("p" "permanent" plain (function org-roam--capture-get-point)
+          ;;  "+ tags :: %?\n\n* Note\n"
+          ;;  :file-name "p_%<%Y%m%d%H%M%S>"
+          ;;  :head "#+TITLE: ${title}\n#+roam_tags: perm\n\n"
+          ;;  :unnarrowed nil)
           )
         )
   (setq org-roam-capture-ref-templates
