@@ -559,10 +559,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; turn off formatting for markdown
 (add-to-list '+format-on-save-enabled-modes 'markdown-mode t)
 
-;; try RLS
-(after! rustic
-  (setq rustic-lsp-server 'rls))
-
 ;; O Camel
 (add-hook 'tuareg-mode-hook #'(lambda() (setq mode-name "🐫")))
 
