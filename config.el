@@ -38,7 +38,6 @@
      'face 'doom-dashboard-banner)))
 
 ;;; Typography
-;; (setq doom-font (font-spec :family "Liberation Mono" :size 32))
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 32))
 (setq doom-big-font-increment 6)
 (setq emojify-emoji-set "twemoji-v2")
