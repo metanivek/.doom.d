@@ -11,13 +11,9 @@
 (package! racket-mode)           ; https://github.com/greghendershott/racket-mode
 (package! org-projectile)        ; https://github.com/IvanMalison/org-projectile
 (package! tidal)
-(package! ligo-mode)
 (package! company-glsl)
 (package! glsl-mode)
 (package! pacfiles-mode)
-
-;; needed for roam2 ??
-;; (unpin! org-roam company-org-roam)
 
 ;;; debugging/utility packages
 ;;; only uncomment when I want to use them
