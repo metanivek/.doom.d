@@ -14,6 +14,7 @@
 (package! company-glsl)
 (package! glsl-mode)
 (package! pacfiles-mode)
+(package! gnuplot)
 
 ;;; debugging/utility packages
 ;;; only uncomment when I want to use them
