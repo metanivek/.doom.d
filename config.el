@@ -560,9 +560,15 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (add-to-list '+format-on-save-enabled-modes 'markdown-mode t)
 
 ;; O Camel
-(add-hook 'tuareg-mode-hook #'(lambda() (setq mode-name "🐫")))
-
+(add-hook 'tuareg-mode-hook #'(lambda()
+                                (setq mode-name "🐫")
+                                (setq compile-command "dune build")))
 (setq merlin-error-after-save t)
+
+;; Rust
+(add-hook 'rustic-mode-hook #'(lambda()
+                                (setq mode-name "🦀")
+                                (setq compile-command "cargo build")))
 
 ;; show week numbers in calendar
 (copy-face font-lock-constant-face 'calendar-iso-week-face)
