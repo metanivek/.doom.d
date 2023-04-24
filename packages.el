@@ -14,6 +14,7 @@
 (package! company-glsl)
 (package! glsl-mode)
 (package! pacfiles-mode)
+(package! sqlite)
 (package! gnuplot)
 
 ;;; debugging/utility packages
