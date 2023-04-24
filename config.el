@@ -587,6 +587,29 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; vlf helps load REALLY large files. it will prompt to use.
 (use-package! vlf-setup
   :defer-incrementally vlf-tune vlf-base vlf-write vlf-search vlf-occur vlf-follow vlf-ediff vlf)
+
+;; okra linting
+(defun okra-lint ()
+  "Run the okra lint on the current buffer and display its output."
+  (interactive)
+  (let* ((current-buffer (current-buffer))
+         (output-buffer (get-buffer-create "*okra-lint-output*"))
+         (home (getenv "HOME"))
+         (subdir ".opam/default/bin")
+         (command (expand-file-name "okra" (expand-file-name subdir home)))
+         (start (point-min))
+         (end (point-max)))
+    (with-current-buffer output-buffer
+      (erase-buffer))
+    (apply 'call-process-region start end command nil output-buffer nil '("lint" "--engineer"))
+    (pop-to-buffer output-buffer)
+    (goto-char (point-min))
+    (with-current-buffer current-buffer
+      (message "Ran '%s' on current buffer." command))))
+;; make it a popup buffer
+(set-popup-rule!
+  "^\\*okra-lint-output\\*$" :slot -1 :vslot -1 :size 0.33 :select t :quit t :ttl 0 :side 'bottom)
+
 ;; gnuplot mode
 (autoload 'gnuplot-mode "gnuplot" "Gnuplot major mode" t)
 (autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot-mode" t)
