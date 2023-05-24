@@ -45,11 +45,7 @@
 
 ;;; Theme
 ;; dark
-;; (setq my-theme 'doom-vibrant)
 ;; (setq my-theme 'doom-nord)
-;; (setq my-theme 'doom-palenight)
-;; (setq my-theme 'doom-snazzy)
-;; (setq my-theme 'doom-acario-dark)
 ;; (setq my-theme 'doom-outrun-electric)
 ;; (setq my-theme 'doom-gruvbox)
 ;; (setq my-theme 'doom-solarized-dark)
@@ -59,17 +55,19 @@
 ;; (setq my-theme 'doom-molokai)
 ;; (setq my-theme 'doom-xcode)
 ;; (setq my-theme 'doom-spacegrey)
-(setq my-theme 'doom-one)
+;; (setq my-theme 'doom-vibrant)
+;; (setq my-theme 'doom-palenight)
+;; (setq my-theme 'doom-one)
 
 ;; light
 ;; (setq my-theme 'doom-opera-light)
-;; (setq my-theme 'doom-one-light)
 ;; (setq my-theme 'doom-flatwhite)
-;; (setq my-theme 'doom-solarized-light)
 ;; (setq my-theme 'doom-gruvbox-light)
 ;; (setq my-theme 'doom-tomorrow-day)
-;; (setq my-theme 'doom-nord-light)
 ;; (setq my-theme 'doom-acario-light)
+;; (setq my-theme 'doom-solarized-light)
+;; (setq my-theme 'doom-nord-light)
+(setq my-theme 'doom-one-light)
 
 (setq doom-theme my-theme)
 
@@ -526,12 +524,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (setq tidal-boot-script-path "~/.cabal/store/ghc-8.10.4/tidal-1.7.7-fc542b3085c2f32ca34caec6b01fca885187ba065658677ecd7c111008302771/share/BootTidal.hs")
 
 (setq cider-lein-command "lein-art")
-
-;; michelson
-(load "~/code/tezos/emacs/michelson-mode.el" nil t)
-(setq michelson-client-command "~/code/tezos/tezos-client")
-(setq michelson-alphanet nil)
-
 
 ;; simpler minimal writing environment
 (use-package! olivetti
