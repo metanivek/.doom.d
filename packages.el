@@ -8,11 +8,11 @@
 (package! org-roam-bibtex)       ; https://github.com/org-roam/org-roam-bibtex
 ;; (package! org-roam-server)       ; https://github.com/org-roam/org-roam-server
 (package! evil-visual-mark-mode) ; https://github.com/roman/evil-visual-mark-mode
-(package! racket-mode)           ; https://github.com/greghendershott/racket-mode
+;; (package! racket-mode)           ; https://github.com/greghendershott/racket-mode
 (package! org-projectile)        ; https://github.com/IvanMalison/org-projectile
-(package! tidal)
-(package! company-glsl)
-(package! glsl-mode)
+;; (package! tidal)
+;; (package! company-glsl)
+;; (package! glsl-mode)
 (package! pacfiles-mode)
 (package! sqlite)
 (package! gnuplot)
