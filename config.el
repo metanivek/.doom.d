@@ -613,3 +613,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (autoload 'gnuplot-mode "gnuplot" "Gnuplot major mode" t)
 (autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot-mode" t)
 (setq auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist))
+
+;; whitespace
+(setq
+ whitespace-style '(face tabs tab-mark spaces space-mark trailing lines-tail newline newline-mark)
+ whitespace-display-mappings '(
+                               ;; (space-mark   ?\     [?\u00B7]     [?.])
+                               ;; (space-mark   ?\xA0  [?\u00A4]     [?_])
+                               ;; (newline-mark ?\n    [?¬ ?\n])
+                               (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t])))
+(global-whitespace-mode +1)
+(add-hook 'before-save-hook 'whitespace-cleanup)
