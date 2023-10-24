@@ -89,7 +89,6 @@
         +dictionary
         +docsets)
        (lsp +peek)
-       ;;macos             ; MacOS-specific commands
        magit               ; a git porcelain for Emacs
        ;; make             ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -103,6 +102,7 @@
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
+       (:if IS-MAC macos)  ; improve compatibility with macOS
        tty                 ; improve the terminal Emacs experience
 
        :lang

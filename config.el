@@ -38,8 +38,11 @@
      'face 'doom-dashboard-banner)))
 
 ;;; Typography
-;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 32))
-(setq doom-font (font-spec :family "Blex Mono Nerd Font" :size 32))
+;; (setq doom-font (font-spec :family "Blex Mono Nerd Font" :size 32))
+;;(setq doom-font (font-spec :family "BlexMono Nerd Font Mono" :size 16))
+(setq my-font-family (if IS-MAC "FiraCode Nerd Font Mono" "FiraCode Nerd Font"))
+(setq my-font-size (if IS-MAC 16 32))
+(setq doom-font (font-spec :family my-font-family :size my-font-size))
 (setq doom-big-font-increment 6)
 (setq emojify-emoji-set "twemoji-v2")
 
@@ -399,7 +402,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; projectile setup
 (setq projectile-project-search-path
-      '("~/oss-code/" "~/code/" "~/paid-projects/"))
+      '("~/oss-code/" "~/code/"))
 (setq org-projectile-projects-file
       (expand-file-name "project-todos.org" org-directory))
 (use-package! org-projectile
@@ -431,11 +434,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; General Config
 (setq
- auto-save-default t                 ; auto save!
- truncate-string-ellipsis "…"        ; lets use the real ellipsis character, looks nicer
- global-auto-revert-mode t           ; update buffers if files change outside emacs
+ auto-save-default t           ; auto save!
+ truncate-string-ellipsis "…"  ; lets use the real ellipsis character, looks nicer
+ global-auto-revert-mode t     ; update buffers if files change outside emacs
  display-line-numbers-type t
  )
+
+(if IS-MAC
+    (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
 
 ;; auto break lines of text when writing
 (add-hook 'text-mode-hook 'auto-fill-mode)
@@ -467,10 +473,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;
 ;; keymappings
 ;;
-;; maintain comment behavior with meta, since we remapped command keeping
 (map! :nie "M-/" #'comment-dwim)
-;; similar but for pasting (old habits die hard)
-(map! :g "M-v" #'yank)
 ;; olivetti toggle
 (map! :g "s-o" #'olivetti-mode)
 ;; modeline toggle
@@ -491,7 +494,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   (setq-local doom-modeline-buffer-encoding
               (unless (or (eq buffer-file-coding-system 'utf-8-unix)
                           (eq buffer-file-coding-system 'utf-8)))))
-(add-hook 'after-change-major-mode-hook #'doom-modeline-conditional-buffer-encoding)
+(add-hook 'after-change-major-mode-hook
+          #'doom-modeline-conditional-buffer-encoding)
 
 
 ;; lets make which key show up quickly!
@@ -549,7 +553,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (add-hook! 'web-mode-hook 'prettier-js-mode)
 
 ;; turn off formatting for markdown
-(add-to-list '+format-on-save-enabled-modes 'markdown-mode t)
+(add-to-list '+format-on-save-disabled-modes 'markdown-mode nil)
 
 ;; O Camel
 (add-hook 'tuareg-mode-hook #'(lambda()
