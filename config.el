@@ -402,7 +402,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; projectile setup
 (setq projectile-project-search-path
-      '("~/oss-code/" "~/code/"))
+      '("~/oss-code/" "~/code/" "~/b/"))
 (setq org-projectile-projects-file
       (expand-file-name "project-todos.org" org-directory))
 (use-package! org-projectile
