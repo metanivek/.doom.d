@@ -404,7 +404,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; projectile setup
 (setq projectile-project-search-path
-      '("~/oss-code/" "~/code/" "~/b/"))
+      '("~/oss-code/" "~/code/" "~/b/" "~/code/cc/"))
 (setq org-projectile-projects-file
       (expand-file-name "project-todos.org" org-directory))
 (use-package! org-projectile
@@ -630,3 +630,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                                (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t])))
 (global-whitespace-mode +1)
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; elm stuff
+
+;; yeah i know you shouldn't edit this file directly
+;; but life is life. disabling auto-format is a lifesaver.
+(defun disable-apheleia ()
+  (when (and (stringp buffer-file-name)
+             (string-match "elm\\.json" buffer-file-name))
+    (apheleia-mode -1)))
+(add-hook 'find-file-hook #'disable-apheleia)
