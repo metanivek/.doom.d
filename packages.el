@@ -16,6 +16,7 @@
 (package! pacfiles-mode)
 (package! sqlite)
 (package! gnuplot)
+(package! catppuccin-theme)
 
 ;;; debugging/utility packages
 ;;; only uncomment when I want to use them

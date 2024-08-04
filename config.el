@@ -61,6 +61,8 @@
 ;; (setq my-theme 'doom-vibrant)
 ;; (setq my-theme 'doom-palenight)
 ;; (setq my-theme 'doom-one)
+(setq my-theme 'catppuccin)
+(setq catppuccin-flavor 'frappe) ;; 'frappe 'latte, 'macchiato, or 'mocha
 
 ;; light
 ;; (setq my-theme 'doom-opera-light)
@@ -70,7 +72,7 @@
 ;; (setq my-theme 'doom-acario-light)
 ;; (setq my-theme 'doom-solarized-light)
 ;; (setq my-theme 'doom-nord-light)
-(setq my-theme 'doom-one-light)
+;; (setq my-theme 'doom-one-light)
 
 (setq doom-theme my-theme)
 
