@@ -130,9 +130,9 @@
        (go
         +lsp
         +tree-sitter)      ; the hipster dialect
-       ;; (haskell         ; a language that's lazier than I am
-       ;;  +lsp
-       ;;  +dante)
+       (haskell         ; a language that's lazier than I am
+        +lsp
+        +tree-sitter)
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        (json               ; At least it ain't XML
