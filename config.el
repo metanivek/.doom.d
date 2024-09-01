@@ -640,3 +640,12 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
              (string-match "elm\\.json" buffer-file-name))
     (apheleia-mode -1)))
 (add-hook 'find-file-hook #'disable-apheleia)
+
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))

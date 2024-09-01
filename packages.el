@@ -17,6 +17,8 @@
 (package! sqlite)
 (package! gnuplot)
 (package! catppuccin-theme)
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
 
 ;;; debugging/utility packages
 ;;; only uncomment when I want to use them
