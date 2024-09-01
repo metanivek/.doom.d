@@ -41,7 +41,7 @@
 ;; (setq doom-font (font-spec :family "Blex Mono Nerd Font" :size 32))
 ;;(setq doom-font (font-spec :family "BlexMono Nerd Font Mono" :size 16))
 (setq my-font-family (if IS-MAC "FiraCode Nerd Font Mono" "FiraCode Nerd Font"))
-(setq my-font-size (if IS-MAC 16 32))
+(setq my-font-size (if IS-MAC 15 32))
 (setq doom-font (font-spec :family my-font-family :size my-font-size))
 (setq doom-big-font-increment 6)
 (setq emojify-emoji-set "twemoji-v2")
